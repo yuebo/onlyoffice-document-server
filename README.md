@@ -51,14 +51,14 @@ Content-Type: multipart/form-data
 ### 直接调用
 
 ```http request
-http://hostname:port/document/editor/{documentId}
+http://document-server:8080/document/editor/{documentId}
 ```
 编辑器会通过html来渲染出编辑器
 
 ### 前后端分离的可以调用
 
 ```http request
-GET http://hostname:port/document/{documentId}
+GET http://document-server:8080/document/{documentId}
 ```
 响应
 ```json
@@ -93,13 +93,13 @@ GET http://hostname:port/document/{documentId}
 ##### 文档回调地址
 请求
 ```http request
-GET http://hostname:port/document/stream/{documentId}
+GET http://document-server:8080/document/stream/{documentId}
 ```
 
 ##### 文档保存回调地址
 请求
 ```http request
-GET http://hostname:port/document/callback/{documentId}
+GET http://document-server:8080/document/callback/{documentId}
 ```
 
 
@@ -108,7 +108,7 @@ GET http://hostname:port/document/callback/{documentId}
 ### 转换请求
 
 ```http request
-POST http://hostname:port/converter/request}
+POST http://document-server:8080/converter/request}
 
 {
     "async": true,
@@ -139,7 +139,7 @@ POST http://hostname:port/converter/request}
 
 ### 状态检查
 ```http request
-GET http://hostname:port/converter/{requestNo}}
+GET http://document-server:8080/converter/{requestNo}}
 ```
 响应
 ```json
