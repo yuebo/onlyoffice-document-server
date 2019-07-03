@@ -1,0 +1,31 @@
+version: '2.4'
+services:
+  onlyoffice:
+    image: onlyoffice/documentserver
+    hostname: onlyoffice
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - documets
+  mysql:
+    image: mysql:5.7
+    hostname: mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=password
+    restart: always
+    networks:
+          - documets
+  document-server:
+    image: document-server
+    hostname: document-server
+    ports:
+      - 8080:8080
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always
+    networks:
+      - documets
+networks:
+  documets:
